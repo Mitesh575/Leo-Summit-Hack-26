@@ -1,0 +1,43 @@
+[
+  {
+    "id": "1770533442772",
+    "teamName": "MMK",
+    "college": "Sri Sairam College of Engineering",
+    "domain": "AI, ML & Data Science",
+    "problem": "Smart Healthcare Diagnosis",
+    "members": [
+      {
+        "name": "Sandeep Roshan S D ",
+        "email": "sec24ad032@sairamtap.edu.in",
+        "phone": "9384671123",
+        "role": "Data Analyst ",
+        "isLead": true
+      },
+      {
+        "name": "Moghit P M",
+        "email": "sec24ad002@sairamtap.edu.in",
+        "phone": "9384671123",
+        "role": "Backend developer "
+      },
+      {
+        "name": "Mitesh Kumaar S",
+        "email": "sec24ad008@sairamtap.edu.in",
+        "phone": "9384671123",
+        "role": "Front end developer "
+      },
+      {
+        "name": "Krithika S",
+        "email": "sec24ad003@sairamtap.edu.in",
+        "phone": "7010218503",
+        "role": "UI-UX designer "
+      }
+    ],
+    "pdfFile": {
+      "name": "vitawatch project.pdf",
+      "filename": "1770533442727_vitawatch_project.pdf",
+      "size": 42673,
+      "path": "/uploads/1770533442727_vitawatch_project.pdf"
+    },
+    "timestamp": "2026-02-08T06:50:42.774Z"
+  }
+]

@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leo Summit Hack'26 | Tech for Social Good Hackathon</title>
+    <meta name="description" content="24-hour innovation hackathon by LEO Club, Sri Sairam Engineering College">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="stylesheet" href="widget.css">
+    <!-- Lottie Animation Player -->
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+</head>
+
+<body>
+    <!-- React Background Animation -->
+    <div id="react-bg-container" style="position: fixed; inset: 0; z-index: -2;"></div>
+    <div class="vignette-overlay"></div>
+    <script src="background-bundle.js"></script>
+
+    <!-- Particle Background -->
+    <canvas id="particleCanvas" style="display: none;"></canvas> <!-- Hiding original particles to show new bg -->
+
+
+
+    <!-- Progress Indicator -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Floating Header -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <div class="header-left">
+                <img src="college-logo.jpg" alt="Sri Sairam Engineering College" class="logo-img college-logo">
+                <span class="logo-text">Sri Sairam Engineering College</span>
+            </div>
+            <div class="header-center">
+                <span class="header-title">Leo Summit Hack'26</span>
+            </div>
+            <div class="header-right">
+                <span class="logo-text">Leo Club</span>
+                <img src="leo logo og.jpeg" alt="Lions Club International" class="logo-img leo-logo">
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-content">
+            <a href="#hero" class="mobile-link">Home</a>
+            <a href="#about" class="mobile-link">About</a>
+            <a href="#structure" class="mobile-link">Roadmap</a>
+            <a href="#domains" class="mobile-link">Domains</a>
+            <a href="#core-team" class="mobile-link">Core Team</a>
+            <a href="#gallery" class="mobile-link">Gallery</a>
+            <a href="#registration" class="mobile-link cta">Register Now</a>
+
+            <div class="mobile-nav-footer">
+                <div class="mobile-contact">
+                    <p>For Queries:</p>
+                    <a href="tel:9600305123">81226 39611</a>
+                </div>
+                <!-- Socials removed -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <!-- Global Background -->
+        <div class="global-bg">
+            <div class="noise-overlay"></div>
+            <div class="grid-pattern"></div>
+
+
+            <!-- Floating Tech Shapes -->
+            <div class="floating-shapes">
+                <div class="shape shape-1">+</div>
+                <div class="shape shape-2">×</div>
+                <div class="shape shape-3">○</div>
+                <div class="shape shape-4">□</div>
+                <div class="shape shape-5">◆</div>
+                <div class="shape shape-6">+</div>
+                <div class="shape shape-7">×</div>
+                <div class="shape shape-8">○</div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>24 Hours of Innovation</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-word">Tech</span>
+                    <span class="title-word">for</span>
+                    <span class="title-word accent">Social</span>
+                    <span class="title-word accent">Good</span>
+                </h1>
+                <p class="hero-desc">Where innovation meets impact. Build solutions that transform communities and
+                    create lasting change in 24 hours.</p>
+                <p class="mission-quote">"This initiative enables Leo Club to create leaders who do not just innovate
+                    for success, but innovate for service."</p>
+
+                <!-- Countdown Timer -->
+                <div class="countdown-container">
+                    <div class="countdown-item">
+                        <span class="countdown-val" id="days">00</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-val" id="hours">00</span>
+                        <span class="countdown-label">Hrs</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-val" id="minutes">00</span>
+                        <span class="countdown-label">Mins</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-val" id="seconds">00</span>
+                        <span class="countdown-label">Secs</span>
+                    </div>
+                </div>
+                <button class="cta-primary" id="startBtn">
+                    <span class="cta-text">Begin Your Journey</span>
+                    <span class="cta-arrow">→</span>
+                </button>
+            </div>
+            <div class="hero-mascot" data-parallax="0.15">
+                <div class="mascot-wrapper" id="mascot">
+                    <div class="mascot-container">
+                        <div class="mascot-glow"></div>
+                        <img src="mascot-premium.png" alt="LeoSummit Mascot" class="lion-mascot-img">
+                    </div>
+
+                    <!-- Floating 3D Elements -->
+                    <div class="float-element" style="--depth: 60px; top: 20%; left: 0%;">💻</div>
+                    <div class="float-element" style="--depth: 80px; top: 60%; right: 0%;">⚛️</div>
+                    <div class="float-element" style="--depth: 40px; top: -10%; right: 30%;">🌍</div>
+                    <div class="float-element" style="--depth: 70px; bottom: 10%; left: 10%;">🚀</div>
+
+                    <div class="mascot-bubble" id="mascotBubble">Ready to innovate? 🚀</div>
+                </div>
+
+            </div>
+
+    </section>
+
+    <!-- College & LEO Club Introduction -->
+    <section class="intro" id="intro">
+        <div class="section-inner">
+            <div class="intro-grid">
+                <!-- College Info -->
+                <div class="intro-card college-card">
+                    <div class="intro-card-glow"></div>
+                    <div class="intro-logo">
+                        <img src="college-logo.jpg" alt="Sri Sairam Engineering College" class="intro-logo-img">
+                    </div>
+                    <h3>Sri Sairam Engineering College</h3>
+                    <p class="intro-tagline">Excellence in Education Since 1995</p>
+                    <p class="intro-description">
+                        Sri Sairam Engineering College, Chennai is a premier institution affiliated to Anna University,
+                        renowned for academic excellence and innovation. With NAAC A++ accreditation and NBA-accredited
+                        programs, we nurture future leaders through cutting-edge education and holistic development.
+                    </p>
+                    <div class="intro-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">29+</span>
+                            <span class="stat-label">Years of Excellence</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">15K+</span>
+                            <span class="stat-label">Students</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">A++</span>
+                            <span class="stat-label">NAAC Grade</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEO Club Info -->
+                <div class="intro-card leo-card">
+                    <div class="intro-card-glow gold"></div>
+                    <div class="intro-logo">
+                        <img src="leo logo og.jpeg" alt="LEO Club International" class="intro-logo-img leo">
+                    </div>
+                    <h3>LEO Club of Sairam</h3>
+                    <p class="intro-tagline">Leadership • Experience • Opportunity</p>
+                    <p class="intro-description">
+                        LEO Club of Sri Sairam Engineering College is a dynamic youth organization affiliated with
+                        Lions Club International. We empower young leaders through community service, skill development,
+                        and impactful initiatives that make a difference in society.
+                    </p>
+                    <div class="intro-highlights">
+                        <div class="highlight-tag">🦁 Lions Club International</div>
+                        <div class="highlight-tag">🎯 Youth Leadership</div>
+                        <div class="highlight-tag">🌟 Community Service</div>
+                        <div class="highlight-tag">💡 Innovation Hub</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event Banner -->
+            <div class="event-banner">
+                <div class="event-banner-bg"></div>
+                <div class="event-banner-content">
+                    <div class="event-badge">
+                        <span class="badge-icon">🏆</span>
+                        <span>Flagship Event 2026</span>
+                    </div>
+                    <h2>Leo Summit Hack'26</h2>
+                    <p class="event-subtitle">A 24-Hour Hackathon for Social Good</p>
+                    <p class="event-description">
+                        LEO Club of Sairam proudly presents <strong>Tech for Social Good</strong> — our flagship
+                        hackathon
+                        bringing together the brightest minds to solve real-world challenges through technology. Join
+                        25 shortlisted teams in this transformative journey where your code creates lasting impact.
+                    </p>
+
+                    <!-- Important Notice -->
+                    <div class="event-notice">
+                        <div class="notice-icon">📢</div>
+                        <div class="notice-content">
+                            <p class="notice-title">Important: Selection & Entry Process</p>
+                            <ul class="notice-list">
+                                <li><strong>🎯 Shortlisting:</strong> Only shortlisted teams will be selected to
+                                    participate in the hackathon based on their problem statement submissions.</li>
+                                <li><strong>💳 Entry Fee:</strong> Selected teams are required to pay
+                                    <strong>₹400</strong> as a participation fee.
+                                </li>
+                                <li><strong>❤️ For a Cause:</strong> All collected fees will be <strong>100% donated to
+                                        charity</strong> — making your participation count towards social good!</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="event-info-grid">
+                        <div class="feature-item date-item">
+                            <span class="feature-icon">📅</span>
+                            <span>Feb 23-24, 2026</span>
+                        </div>
+                        <div class="feature-item prize-item">
+                            <span class="feature-icon">💰</span>
+                            <span>₹15,000+ Prizes</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🎓</span>
+                            <span>Expert Mentorship</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🍕</span>
+                            <span>Food & Refreshments</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">📜</span>
+                            <span>Certificates for All</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Hackathon Highlights -->
+    <section class="highlights" id="highlights">
+        <div class="section-inner">
+            <div class="highlights-grid">
+                <div class="highlight-card" data-delay="0">
+                    <div class="card-icon">❤️</div>
+                    <h3>100% NGO Donated</h3>
+                    <p>Every rupee of your registration fee is donated to Lions Global Causes.</p>
+                </div>
+
+                <div class="highlight-card" data-delay="1">
+                    <div class="card-icon">🌱</div>
+                    <h3>Seed Pens</h3>
+                    <p>Promoting environmental awareness with plantable seed pens for all.</p>
+                </div>
+
+                <div class="highlight-card" data-delay="2">
+                    <div class="card-icon">🎯</div>
+                    <h3>Innovation with Purpose</h3>
+                    <p>Blending technology-driven solutions with humanitarian impact.</p>
+                </div>
+
+                <div class="highlight-card" data-delay="3">
+                    <div class="card-icon">🦁</div>
+                    <h3>Global Causes</h3>
+                    <p>Alignment of problem statements with Lions Global Causes, ensuring real-world social relevance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Summary Section -->
+    <section class="about" id="about">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-label">About The Event</span>
+                <h2 class="section-title">24-Hour Innovation Challenge</h2>
+                <p class="section-desc">Presented by LEO Club of Sri Sairam Engineering College</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-intro">
+                        Join us for an exciting 24-hour hackathon where innovative minds come together to build
+                        technology solutions that address real-world social challenges. This is your opportunity
+                        to collaborate, innovate, and create meaningful impact.
+                    </p>
+
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📅</span>
+                            <div class="detail-info">
+                                <h4>Date</h4>
+                                <p>February 23-24, 2026</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">⏰</span>
+                            <div class="detail-info">
+                                <h4>Duration</h4>
+                                <p>24 Hours Non-Stop</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📍</span>
+                            <div class="detail-info">
+                                <h4>Venue</h4>
+                                <p>Sri Sairam Engineering College, Chennai</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">👥</span>
+                            <div class="detail-info">
+                                <h4>Team Size</h4>
+                                <p>4 Members per Team</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-prizes">
+                    <div class="prizes-card">
+                        <h3>🏆 Prizes Worth</h3>
+                        <div class="prize-amount">₹15,000+</div>
+                        <ul class="prize-list">
+                            <li>🥇 1st Place Cash Prize</li>
+                            <li>🥈 2nd Place Cash Prize</li>
+                            <li>🥉 3rd Place Cash Prize</li>
+                            <li>📜 Certificates for all shortlisted participants</li>
+                            <li>🌟 Recognition through Leo Club platforms</li>
+                        </ul>
+                        <p class="prize-note">+ Certificates, Internship Opportunities & Goodies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hackathon Structure (Timeline) -->
+    <section class="structure" id="structure">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-label">Hackathon Structure</span>
+                <h2 class="section-title">The Innovation Roadmap</h2>
+                <p class="section-desc">From abstract submission to the final MVP showcase</p>
+            </div>
+
+            <div class="timeline">
+                <!-- Stage 1 -->
+                <div class="timeline-stage online">
+                    <div class="stage-tag">Stage 01</div>
+                    <div class="stage-content">
+                        <h3>Abstract Submission (Online)</h3>
+                        <p style="margin-bottom: 15px;">Submit your innovative ideas through the official channels to
+                            qualify for the next round.</p>
+
+                        <div class="submission-details"
+                            style="background: rgba(212, 175, 55, 0.05); border: 1px dashed var(--gold); border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+                            <h4
+                                style="color: var(--gold); margin-top: 0; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                                <span style="font-size: 1.2rem;">📝</span> PPT Submission Requirements
+                            </h4>
+                            <ul class="criteria-list" style="margin-top: 0; list-style: none; padding-left: 0;">
+                                <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 10px;">
+                                    <span style="color: var(--gold);">★</span>
+                                    <span>Must use the <strong>Official PPT Template</strong></span>
+                                </li>
+                                <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                                    <span style="color: var(--gold);">★</span>
+                                    <span>Upload via it the <strong>Google Form</strong> in Registration</span>
+                                </li>
+                            </ul>
+                            <div class="stage-actions" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                <a href="LeoSummit%20Hack%2726%20PPT.pptx" class="cta-mini" download>
+                                    📥 Download PPT Template
+                                </a>
+                                <a href="#registration" class="cta-mini"
+                                    style="font-size: 0.85rem; padding: 8px 15px; background: var(--gold); border: 1px solid var(--gold); border-radius: 6px; color: black; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">
+                                    🔗 Go to Registration
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="selection-criteria">
+                            <h4
+                                style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); margin-bottom: 10px;">
+                                Selection Criteria:</h4>
+                            <ul class="criteria-list"
+                                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+                                <li>🎯 Problem Relevance</li>
+                                <li>💡 Innovation</li>
+                                <li>🛠️ Feasibility</li>
+                                <li>❤️ Social Impact</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 2 -->
+                <div class="timeline-stage offline">
+                    <div class="stage-tag">Stage 02</div>
+                    <div class="stage-content">
+                        <h3>24-Hour Offline Hackathon</h3>
+                        <p>25 shortlisted teams gather at Sairam for 24 hours of non-stop building and impact.</p>
+
+                        <div class="rounds-grid">
+                            <div class="round-card">
+                                <div class="round-num">01</div>
+                                <h4>Idea Presentation</h4>
+                                <p>Pitching concepts to judges and explaining technical stacks.</p>
+                            </div>
+                            <div class="round-card">
+                                <div class="round-num">02</div>
+                                <h4>Prototype Reveal</h4>
+                                <p>Simulating early-stage solutions and demonstrating core logic.</p>
+                            </div>
+
+                            <div class="round-card">
+                                <div class="round-num">03</div>
+                                <h4>MVP Showcase</h4>
+                                <p>Final evaluation of the completed project and solution effectiveness.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Domains -->
+    <section class="domains" id="domains">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-label">Themes</span>
+                <h2 class="section-title">Hackathon Domains</h2>
+                <p class="section-desc">Explore the domains that align with social impact</p>
+
+                <div class="hint-container">
+                    <span class="hint-badge">
+                        <span class="hint-icon">�</span> Click the domain to view the problem statements
+                    </span>
+                </div>
+            </div>
+            <div class="domains-grid">
+                <div class="domain-tile" data-domain="health">
+                    <div class="tile-glow"></div>
+                    <div class="tile-content">
+                        <span class="tile-icon">🏥</span>
+                        <h3>Health & Well-Being</h3>
+                        <p>Focusing on Childhood Cancer, Diabetes, and Vision. Solutions for healthcare access and
+                            preventive care.</p>
+                    </div>
+                </div>
+                <div class="domain-tile" data-domain="planet">
+                    <div class="tile-glow"></div>
+                    <div class="tile-content">
+                        <span class="tile-icon">🌍</span>
+                        <h3>Sustainable Planet & Disaster Resilience</h3>
+                        <p>Focusing on Environment and Disaster Relief. Eco-friendly innovations and climate action
+                            solutions.</p>
+                    </div>
+                </div>
+                <div class="domain-tile" data-domain="equity">
+                    <div class="tile-glow"></div>
+                    <div class="tile-content">
+                        <span class="tile-icon">🤝</span>
+                        <h3>Social Equity & Human Development</h3>
+                        <p>Focusing on Hunger, Humanitarian Efforts, and Youth. Empowering communities through
+                            purposeful innovation.</p>
+                    </div>
+                </div>
+                <div class="domain-tile" data-domain="open">
+                    <div class="tile-glow"></div>
+                    <div class="tile-content">
+                        <span class="tile-icon">💡</span>
+                        <h3>Open Innovation</h3>
+                        <p>Propose innovative solutions beyond the listed themes that have strong societal or
+                            humanitarian impact.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Scope Members Section -->
+    <section class="scope-members" id="scope">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-label">The Core Team</span>
+                <h2 class="section-title">SCOPE Members</h2>
+                <p class="section-desc">The pillars behind Leo Summit Hack'26</p>
+
+                <!-- Mobile Swipe Hint -->
+                <div class="swipe-hint-container">
+                    <div class="swipe-hint-update">
+                        <span>Swipe to Explore</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scope-grid">
+                <!-- S: Strategist -->
+                <div class="scope-card">
+                    <div class="scope-card-inner">
+                        <div class="scope-card-front">
+                            <div class="scope-letter">S</div>
+                            <div class="scope-image-container">
+                                <img src="Mr.B.Ravikumar.png" alt="Mr. B Ravikumar" class="scope-img">
+                            </div>
+                            <div class="scope-info">
+                                <h4>Mr. B Ravikumar</h4>
+                                <span class="scope-role">Strategist</span>
+                                <p class="scope-dept">Assistant Professor / AI&DS</p>
+                            </div>
+                            <a href="mailto:ravikumar.ai@sairamit.edu.in"
+                                class="scope-email">ravikumar.ai@sairamit.edu.in</a>
+                        </div>
+                        <div class="scope-card-back">
+                            <div class="scope-back-content">
+                                <span class="scope-icon">✉️</span>
+                                <h4>Email ID</h4>
+                                <a href="mailto:ravikumar.ai@sairamit.edu.in"
+                                    class="scope-email">ravikumar.ai@sairamit.edu.in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- C: Captain -->
+                <div class="scope-card">
+                    <div class="scope-card-inner">
+                        <div class="scope-card-front">
+                            <div class="scope-letter">C</div>
+                            <div class="scope-image-container">
+                                <img src="Mr. S. Muthamilselvan.png" alt="Mr. S Muthamilselvan" class="scope-img">
+                            </div>
+                            <div class="scope-info">
+                                <h4>Mr. S Muthamilselvan</h4>
+                                <span class="scope-role">Captain</span>
+                                <p class="scope-dept">Associate Professor / AI&DS</p>
+                            </div>
+                            <a href="mailto:muthamilselvan.ai@sairam.edu.in"
+                                class="scope-email">muthamilselvan.ai@sairam.edu.in</a>
+                        </div>
+                        <div class="scope-card-back">
+                            <div class="scope-back-content">
+                                <span class="scope-icon">✉️</span>
+                                <h4>Email ID</h4>
+                                <a href="mailto:muthamilselvan.ai@sairam.edu.in"
+                                    class="scope-email">muthamilselvan.ai@sairam.edu.in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- O: Organizer -->
+                <div class="scope-card">
+                    <div class="scope-card-inner">
+                        <div class="scope-card-front">
+                            <div class="scope-letter">O</div>
+                            <div class="scope-image-container">
+                                <img src="Mr. K.SRINIVASAN.png" alt="Mr. K Srinivasan" class="scope-img">
+                            </div>
+                            <div class="scope-info">
+                                <h4>Mr. K Srinivasan</h4>
+                                <span class="scope-role">Organizer</span>
+                                <p class="scope-dept">Associate Professor / ECE</p>
+                            </div>
+                            <a href="mailto:srinivasan.ece@sairam.edu.in"
+                                class="scope-email">srinivasan.ece@sairam.edu.in</a>
+                        </div>
+                        <div class="scope-card-back">
+                            <div class="scope-back-content">
+                                <span class="scope-icon">✉️</span>
+                                <h4>Email ID</h4>
+                                <a href="mailto:srinivasan.ece@sairam.edu.in"
+                                    class="scope-email">srinivasan.ece@sairam.edu.in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- P: Propagator -->
+                <div class="scope-card">
+                    <div class="scope-card-inner">
+                        <div class="scope-card-front">
+                            <div class="scope-letter">P</div>
+                            <div class="scope-image-container">
+                                <img src="Mr. J.Pathmanaban.png" alt="Mr. J Pathmanaban" class="scope-img">
+                            </div>
+                            <div class="scope-info">
+                                <h4>Mr. J Pathmanaban</h4>
+                                <span class="scope-role">Propagator</span>
+                                <p class="scope-dept">Assistant Professor / CSE</p>
+                            </div>
+                            <a href="mailto:pathmanaban.cse@sairamit.edu.in"
+                                class="scope-email">pathmanaban.cse@sairamit.edu.in</a>
+
+                        </div>
+                        <div class="scope-card-back">
+                            <div class="scope-back-content">
+                                <span class="scope-icon">✉️</span>
+                                <h4>Email ID</h4>
+                                <a href="mailto:pathmanaban.cse@sairamit.edu.in"
+                                    class="scope-email">pathmanaban.cse@sairamit.edu.in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E: Executor -->
+                <div class="scope-card">
+                    <div class="scope-card-inner">
+                        <div class="scope-card-front">
+                            <div class="scope-letter">E</div>
+                            <div class="scope-image-container">
+                                <img src="Mr. S RAVINDRAN.png" alt="Mr. S Ravindran" class="scope-img">
+                            </div>
+                            <div class="scope-info">
+                                <h4>Mr. S Ravindran</h4>
+                                <span class="scope-role">Executor</span>
+                                <p class="scope-dept">Associate Professor / MECH</p>
+                            </div>
+                            <a href="mailto:ravindran.mech@sairam.edu.in"
+                                class="scope-email">ravindran.mech@sairam.edu.in</a>
+
+                        </div>
+                        <div class="scope-card-back">
+                            <div class="scope-back-content">
+                                <span class="scope-icon">✉️</span>
+                                <h4>Email ID</h4>
+                                <a href="mailto:ravindran.mech@sairam.edu.in"
+                                    class="scope-email">ravindran.mech@sairam.edu.in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Magic Team Section (Part of Core) -->
+    <!-- Core Team Section -->
+    <section class="scope-members" id="core-team">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2 class="core-title">Meet Our Core Team</h2>
+                <h3 class="core-subtitle">Core Team</h3>
+
+                <!-- Mobile Swipe Hint -->
+                <div class="swipe-hint-container">
+                    <div class="swipe-hint-update">
+                        <span>Swipe to Explore</span>
+                    </div>
+                </div>
+            </div>
+            <div class="scope-grid core-team-grid">
+                <!-- Content Lead -->
+                <div class="scope-card">
+                    <div class="scope-card-inner">
+                        <div class="scope-card-front">
+                            <div class="scope-letter">P</div>
+                            <div class="scope-image-container">
+                                <img src="Leo Pavithra S.jpeg" onerror="this.src='college-logo.jpg'"
+                                    alt="Leo Pavithra S" class="scope-img">
+                            </div>
+                            <div class="scope-info">
+                                <h4>Leo Pavithra S</h4>
+                                <span class="scope-role">Content Lead</span>
+                            </div>
+                        </div>
+                        <!-- Back Face Removed -->
+                    </div>
+                </div>
+
+                <!-- Technical Lead -->
+                <div class="scope-card">
+                    <div class="scope-card-inner">
+                        <div class="scope-card-front">
+                            <div class="scope-letter">M</div>
+                            <div class="scope-image-container">
+                                <img src="Leo Mitesh Kumaar S.jpeg" onerror="this.src='college-logo.jpg'"
+                                    alt="Leo Mitesh Kumaar S" class="scope-img" style="transform: scale(1.2);">
+                            </div>
+                            <div class="scope-info">
+                                <h4>Leo Mitesh Kumaar S</h4>
+                                <span class="scope-role">Technical Lead</span>
+                            </div>
+                        </div>
+                        <!-- Back Face Removed -->
+                    </div>
+                </div>
+
+                <!-- Media Lead -->
+                <div class="scope-card">
+                    <div class="scope-card-inner">
+                        <div class="scope-card-front">
+                            <div class="scope-letter">M</div>
+                            <div class="scope-image-container">
+                                <img src="Leo Matheshwaran V.jpeg" onerror="this.src='college-logo.jpg'"
+                                    alt="Leo Matheshwaran V" class="scope-img">
+                            </div>
+                            <div class="scope-info">
+                                <h4>Leo Matheshwaran V</h4>
+                                <span class="scope-role">Media Lead</span>
+                            </div>
+                        </div>
+                        <!-- Back Face Removed -->
+                    </div>
+                </div>
+
+                <!-- Design Lead -->
+                <div class="scope-card">
+                    <div class="scope-card-inner">
+                        <div class="scope-card-front">
+                            <div class="scope-letter">H</div>
+                            <div class="scope-image-container">
+                                <img src="Leo Hamsa Dhanabalan.jpeg" onerror="this.src='college-logo.jpg'"
+                                    alt="Leo Hamsa Dhanabalan" class="scope-img">
+                            </div>
+                            <div class="scope-info">
+                                <h4>Leo Hamsa Dhanabalan</h4>
+                                <span class="scope-role">Design Lead</span>
+                            </div>
+                        </div>
+                        <!-- Back Face Removed -->
+                    </div>
+                </div>
+
+                <!-- Logistics Lead -->
+                <div class="scope-card">
+                    <div class="scope-card-inner">
+                        <div class="scope-card-front">
+                            <div class="scope-letter">S</div>
+                            <div class="scope-image-container">
+                                <img src="Leo Seshagiri R.jpeg" onerror="this.src='college-logo.jpg'"
+                                    alt="Leo Seshagiri R" class="scope-img">
+                            </div>
+                            <div class="scope-info">
+                                <h4>Leo Seshagiri R</h4>
+                                <span class="scope-role">Logistics Lead</span>
+                            </div>
+                        </div>
+                        <!-- Back Face Removed -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Magic Team Section (Part of Core) -->
+    <section class="scope-members" id="magic-team">
+        <div class="section-inner">
+            <div class="section-header">
+                <h3 class="core-subtitle">Magic Team</h3>
+
+                <!-- Mobile Swipe Hint -->
+                <div class="swipe-hint-container">
+                    <div class="swipe-hint-update">
+                        <span>Swipe to Explore</span>
+                    </div>
+                </div>
+            </div>
+            <div class="scope-grid core-team-grid">
+                <!-- President -->
+                <div class="scope-card">
+                    <div class="scope-card-inner">
+                        <div class="scope-card-front">
+                            <div class="scope-letter">P</div>
+                            <div class="scope-image-container">
+                                <img src="Leo Sachin Abinash - President.jpeg" onerror="this.src='college-logo.jpg'"
+                                    alt="Leo Sachin Abinash" class="scope-img">
+                            </div>
+                            <div class="scope-info">
+                                <h4>Leo Sachin Abinash</h4>
+                                <span class="scope-role">President</span>
+                            </div>
+
+                        </div>
+                        <!-- Flip Removed -->
+                    </div>
+                </div>
+
+                <!-- Vice President -->
+                <div class="scope-card">
+                    <div class="scope-card-inner">
+                        <div class="scope-card-front">
+                            <div class="scope-letter">V</div>
+                            <div class="scope-image-container">
+                                <img src="Leo Sajeetha P - Vice President.jpeg" onerror="this.src='college-logo.jpg'"
+                                    alt="Leo Sajeetha P" class="scope-img">
+                            </div>
+                            <div class="scope-info">
+                                <h4>Leo Sajeetha P</h4>
+                                <span class="scope-role">Vice President</span>
+                            </div>
+
+                        </div>
+                        <!-- Flip Removed -->
+                    </div>
+                </div>
+
+                <!-- Secretary -->
+                <div class="scope-card">
+                    <div class="scope-card-inner">
+                        <div class="scope-card-front">
+                            <div class="scope-letter">S</div>
+                            <div class="scope-image-container">
+                                <img src="Leo Nandhini MV Secretary.jpeg" onerror="this.src='college-logo.jpg'"
+                                    alt="Leo Nandhini MV" class="scope-img">
+                            </div>
+                            <div class="scope-info">
+                                <h4>Leo Nandhini MV</h4>
+                                <span class="scope-role">Secretary</span>
+                            </div>
+
+                        </div>
+                        <!-- Flip Removed -->
+                    </div>
+                </div>
+
+                <!-- Treasurer -->
+                <div class="scope-card">
+                    <div class="scope-card-inner">
+                        <div class="scope-card-front">
+                            <div class="scope-letter">T</div>
+                            <div class="scope-image-container">
+                                <img src="Leo Mouli S Treasurer.jpeg" onerror="this.src='college-logo.jpg'"
+                                    alt="Leo Mouli S" class="scope-img">
+                            </div>
+                            <div class="scope-info">
+                                <h4>Leo Mouli S</h4>
+                                <span class="scope-role">Treasurer</span>
+                            </div>
+                        </div>
+                        <!-- Flip Removed -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Registration -->
+    <section class="registration" id="registration">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-label">Join Us</span>
+                <h2 class="section-title">Team Registration</h2>
+                <p class="section-desc">Register your team of 4 members</p>
+            </div>
+            <div class="registration-content" style="text-align: center; padding: 40px 0;">
+                <div class="registration-deadline">
+                    ⏳ <strong>Deadline:</strong> 18th Feb
+                </div>
+                <div class="registration-note">
+                    <span class="note-icon">📢</span>
+                    <p><strong>Important:</strong> You must upload a PPT for your chosen problem statement in the Google
+                        Form.</p>
+                </div>
+                <div class="cta-group" style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <a href="LeoSummit%20Hack%2726%20PPT.pptx" class="cta-secondary" download>
+                        <span class="cta-icon">📥</span>
+                        <span class="cta-text">Download Template</span>
+                    </a>
+                    <a href="https://forms.gle/ZevztrPkGcc6r68eA" class="cta-primary" id="registerBtn" target="_blank"
+                        style="text-decoration: none; display: inline-flex;">
+                        <span class="cta-text">Register Now</span>
+                        <span class="cta-arrow">→</span>
+                    </a>
+                </div>
+                <p style="margin-top: 20px; color: var(--text-secondary); font-size: 0.9rem;">Registration form will
+                    open in a new tab</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section (3D Carousel) -->
+    <section class="gallery" id="gallery">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-label">Moments</span>
+                <h2 class="section-title">Gallery</h2>
+                <p class="section-desc">Glimpses of innovation and teamwork from past events.</p>
+            </div>
+
+            <div class="gallery-container-refresh">
+                <div class="gallery-marquee">
+                    <div class="marquee-track">
+                        <!-- Original Set -->
+                        <div class="marquee-item"><img src="leo1.jpg" alt="Gallery"></div>
+                        <div class="marquee-item"><img src="leo2.jpg" alt="Gallery"></div>
+                        <div class="marquee-item"><img src="leo3.jpg" alt="Gallery"></div>
+                        <div class="marquee-item"><img src="leo4.jpg" alt="Gallery"></div>
+                        <div class="marquee-item"><img src="leo5.jpg" alt="Gallery"></div>
+                        <div class="marquee-item"><img src="leo6.jpg" alt="Gallery"></div>
+                        <div class="marquee-item"><img src="leo7.jpg" alt="Gallery"></div>
+                        <div class="marquee-item"><img src="leo8.jpg" alt="Gallery"></div>
+
+                        <!-- Duplicate Set (For Infinite Loop) -->
+                        <div class="marquee-item"><img src="leo1.jpg" alt="Gallery"></div>
+                        <div class="marquee-item"><img src="leo2.jpg" alt="Gallery"></div>
+                        <div class="marquee-item"><img src="leo3.jpg" alt="Gallery"></div>
+                        <div class="marquee-item"><img src="leo4.jpg" alt="Gallery"></div>
+                        <div class="marquee-item"><img src="leo5.jpg" alt="Gallery"></div>
+                        <div class="marquee-item"><img src="leo6.jpg" alt="Gallery"></div>
+                        <div class="marquee-item"><img src="leo7.jpg" alt="Gallery"></div>
+                        <div class="marquee-item"><img src="leo8.jpg" alt="Gallery"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="college-logo.jpg" alt="Sri Sairam" class="footer-logo">
+                <span>Sri Sairam Engineering College</span>
+                <span class="divider">×</span>
+
+                <img src="leo logo og.jpeg" alt="Lions Club" class="footer-logo"
+                    style="border-radius: 50%; aspect-ratio: 1/1; object-fit: cover;">
+
+                <span>LEO Club</span>
+            </div>
+            <div class="footer-contact">
+                <div class="contact-group">
+                    <h4>Staff Coordinators</h4>
+                    <div class="contact-item">
+                        <span>Ravikumar B</span>
+                        <a href="tel:8122639611">📞 81226 39611</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>Padmanaban</span>
+                        <a href="tel:9751595403">📞 97515 95403</a>
+                    </div>
+                </div>
+                <div class="contact-divider"></div>
+                <div class="contact-group">
+                    <h4>Student Organizers</h4>
+                    <div class="contact-item">
+                        <span>Leo Pavithra S</span>
+                        <a href="tel:8122993303">📞 81229 93303</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>Leo Matheshwaran</span>
+                        <a href="tel:8122639611">📞 8122639611</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-tagline">Organized with ❤️ in Chennai</p>
+                <p class="footer-copy">© 2026 Tech for Social Good Hackathon</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Domain Details Modal -->
+    <div class="modal-overlay" id="domainModal">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close modal">×</button>
+            <div class="modal-header">
+                <div class="modal-icon"></div>
+                <h3 class="modal-title">Domain Title</h3>
+            </div>
+            <div class="modal-body">
+                <!-- Content injected via JS -->
+            </div>
+            <div class="modal-footer">
+                <div class="footer-left">
+                    <span class="footer-icon">📝</span>
+                    <p>Remember to upload a <strong>PPT</strong> for this problem statement in the registration form.
+                    </p>
+                </div>
+                <a href="LeoSummit%20Hack%2726%20PPT.pptx" class="download-link" download>
+                    📥 Get Template
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

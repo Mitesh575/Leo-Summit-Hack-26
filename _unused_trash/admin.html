@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Leo Summit Hack'26</title>
+    <meta name="description" content="Admin dashboard for Leo Summit Hack'26 Hackathon registrations">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <!-- Login Screen -->
+    <div class="login-screen" id="loginScreen">
+        <div class="login-card">
+            <div class="login-logo">🦁</div>
+            <h1>Leo Summit Hack'26</h1>
+            <p class="login-subtitle">Admin Dashboard</p>
+            <form class="login-form" id="loginForm">
+                <div class="input-group">
+                    <input type="password" id="adminPassword" placeholder="Enter admin password" required>
+                    <button type="submit" class="login-btn">Access Dashboard</button>
+                </div>
+                <p class="error-msg" id="errorMsg"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="dashboard" id="dashboard" style="display: none;">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="header-left">
+                <h1>🦁 Leo Summit Hack'26</h1>
+                <span class="header-badge">Admin Dashboard</span>
+            </div>
+            <div class="header-right">
+                <button class="btn-secondary" id="refreshBtn">🔄 Refresh</button>
+                <button class="btn-primary" id="exportBtn">📥 Export CSV</button>
+                <button class="btn-danger" id="logoutBtn">Logout</button>
+            </div>
+        </header>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-info">
+                    <h3 id="totalTeams">0</h3>
+                    <p>Total Teams</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🧑‍💻</div>
+                <div class="stat-info">
+                    <h3 id="totalMembers">0</h3>
+                    <p>Total Participants</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🤖</div>
+                <div class="stat-info">
+                    <h3 id="aimlCount">0</h3>
+                    <p>AI/ML Domain</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📡</div>
+                <div class="stat-info">
+                    <h3 id="iotCount">0</h3>
+                    <p>IoT Domain</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🔐</div>
+                <div class="stat-info">
+                    <h3 id="securityCount">0</h3>
+                    <p>Security Domain</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💡</div>
+                <div class="stat-info">
+                    <h3 id="openCount">0</h3>
+                    <p>Open Innovation</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search & Filter -->
+        <div class="controls">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="Search teams, members, colleges...">
+            </div>
+            <div class="filter-group">
+                <select id="domainFilter">
+                    <option value="">All Domains</option>
+                    <option value="AI, ML & Data Science">AI, ML & Data Science</option>
+                    <option value="IoT & Embedded Systems">IoT & Embedded Systems</option>
+                    <option value="Cybersecurity, Blockchain & Cryptography">Cybersecurity & Blockchain</option>
+                    <option value="Open Innovation">Open Innovation</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Registrations Table -->
+        <div class="table-container">
+            <table class="registrations-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Team Name</th>
+                        <th>College</th>
+                        <th>Domain</th>
+                        <th>Problem</th>
+                        <th>Team Lead</th>
+                        <th>Members</th>
+                        <th>PDF</th>
+                        <th>Registered</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="registrationsBody">
+                    <!-- Registrations will be inserted here -->
+                </tbody>
+            </table>
+            <div class="empty-state" id="emptyState">
+                <div class="empty-icon">📋</div>
+                <h3>No Registrations Yet</h3>
+                <p>Registrations will appear here when teams sign up.</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="admin-footer">
+            <p>Leo Summit Hack'26 Admin Dashboard • LEO Club of Sri Sairam Engineering College</p>
+        </footer>
+    </div>
+
+    <!-- Team Details Modal -->
+    <div class="modal" id="memberModal">
+        <div class="modal-content detail-modal">
+            <button class="modal-close" id="modalClose">✕</button>
+
+            <!-- Team Header -->
+            <div class="detail-header">
+                <div class="detail-team-info">
+                    <h2 id="modalTeamName">Team Name</h2>
+                    <span class="detail-college" id="modalCollege">College Name</span>
+                </div>
+                <div class="detail-badges">
+                    <span class="domain-badge" id="modalDomain">Domain</span>
+                    <span class="date-badge" id="modalDate">Date</span>
+                </div>
+            </div>
+
+            <!-- Problem Statement -->
+            <div class="detail-section">
+                <h3 class="section-label">📋 Problem Statement</h3>
+                <div class="problem-box" id="modalProblem">
+                    Problem statement will appear here
+                </div>
+            </div>
+
+            <!-- PDF Info -->
+            <div class="detail-section">
+                <h3 class="section-label">📄 Submitted Document</h3>
+                <div class="pdf-info-box" id="modalPdfInfo">
+                    <span class="pdf-icon">📎</span>
+                    <span class="pdf-name">No PDF uploaded</span>
+                </div>
+            </div>
+
+            <!-- Team Members -->
+            <div class="detail-section">
+                <h3 class="section-label">👥 Team Members (4)</h3>
+                <div class="members-grid" id="membersList">
+                    <!-- Members will be inserted here -->
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="detail-actions">
+                <button class="btn-secondary" onclick="closeModal()">Close</button>
+                <button class="btn-primary" id="modalExportBtn">📥 Export This Team</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>
