@@ -997,15 +997,18 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-inner">
-            <div class="footer-brand">
-                <img src="college-logo.jpg" alt="Sri Sairam" class="footer-logo">
-                <span>Sri Sairam Engineering College</span>
-                <span class="divider">×</span>
-
-                <img src="leo logo og.jpeg" alt="Lions Club" class="footer-logo"
-                    style="border-radius: 50%; aspect-ratio: 1/1; object-fit: cover;">
-
-                <span>LEO Club</span>
+            <!-- Column 1: Brand & Socials -->
+            <div class="footer-column footer-brand-section">
+                <div class="brand-logos">
+                    <img src="college-logo.jpg" alt="Sri Sairam" class="footer-logo">
+                    <span class="brand-divider">×</span>
+                    <img src="leo logo og.jpeg" alt="Lions Club" class="footer-logo"
+                        style="border-radius: 50%; aspect-ratio: 1/1; object-fit: cover;">
+                </div>
+                <div class="brand-text">
+                    <h4 class="college-name">Sri Sairam Engineering College</h4>
+                    <p class="club-name">LEO Club</p>
+                </div>
                 <div class="footer-socials">
                     <a href="https://sairam.edu.in/leo-club/" target="_blank" class="social-link" title="Club Website">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -1028,7 +1031,9 @@
                     </a>
                 </div>
             </div>
-            <div class="footer-contact">
+
+            <!-- Column 2: Contacts -->
+            <div class="footer-column footer-contact-section">
                 <div class="contact-group">
                     <h4>Staff Coordinators</h4>
                     <div class="contact-item">
@@ -1040,7 +1045,6 @@
                         <a href="tel:9751595403">📞 97515 95403</a>
                     </div>
                 </div>
-                <div class="contact-divider"></div>
                 <div class="contact-group">
                     <h4>Student Organizers</h4>
                     <div class="contact-item">
@@ -1054,13 +1058,10 @@
                 </div>
             </div>
 
-            <div class="footer-location">
+            <!-- Column 3: Location -->
+            <div class="footer-column footer-location-section">
                 <h4>Location</h4>
                 <div class="location-content">
-                    <div class="location-item">
-                        <span class="location-label">College Name:</span>
-                        <p>Sri Sairam Engineering College</p>
-                    </div>
                     <div class="location-item">
                         <span class="location-label">Address:</span>
                         <p>Sai Leo Nagar, West Tambaram <br>
@@ -1074,6 +1075,7 @@
                 </div>
             </div>
 
+            <!-- Footer Bottom -->
             <div class="footer-bottom">
                 <p class="footer-tagline">Organized with ❤️ in Chennai</p>
                 <p class="footer-copy">© 2026 Tech for Social Good Hackathon</p>
