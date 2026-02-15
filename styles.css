@@ -46,9 +46,6 @@ html {
     scroll-behavior: smooth;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
-    letter-spacing: -0.02em;
-    letter-spacing: -0.02em;
-    /* Tight tracking for modern look */
 }
 
 body {
@@ -57,6 +54,7 @@ body {
     color: var(--text-white);
     overflow-x: hidden;
     line-height: 1.6;
+    word-spacing: 0.08em;
 }
 
 h1,
