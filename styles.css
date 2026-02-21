@@ -7668,3 +7668,234 @@ h4,
     height: 24px;
     color: var(--gold);
 }
+
+/* ============================================
+   IEEE Association Section
+   ============================================ */
+.ieee-association {
+    padding: 80px 5%;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.ieee-association::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle, rgba(0, 102, 153, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.ieee-logos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.ieee-card {
+    position: relative;
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 45px 35px;
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.5s var(--transition);
+}
+
+.ieee-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(0, 102, 204, 0.3);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 102, 153, 0.1);
+}
+
+.ieee-card-glow {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 102, 153, 0.2) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.ieee-card-glow.cs {
+    background: radial-gradient(circle, rgba(0, 102, 204, 0.2) 0%, transparent 60%);
+}
+
+.ieee-card:hover .ieee-card-glow {
+    opacity: 1;
+}
+
+.ieee-logo-wrapper {
+    width: 280px;
+    height: 100px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 12px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s var(--transition);
+}
+
+.ieee-card:hover .ieee-logo-wrapper {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.ieee-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s var(--transition);
+}
+
+/* Specific cropping for each logo */
+.ieee-smc-img {
+    transform: scale(1);
+    transform-origin: center;
+}
+
+.ieee-cs-img {
+    transform: scale(1.8);
+    transform-origin: center;
+}
+
+.ieee-info h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-white);
+}
+
+.ieee-fullname {
+    font-size: 0.95rem;
+    color: var(--gold-light);
+    font-weight: 600;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.ieee-tagline {
+    font-size: 0.88rem;
+    color: var(--text-gray);
+    line-height: 1.7;
+    max-width: 380px;
+    margin: 0 auto;
+}
+
+/* IEEE Footer Logos */
+.footer-ieee-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-ieee-logo {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 8px 15px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s var(--transition);
+}
+
+.footer-ieee-logo:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.footer-ieee-logo img {
+    height: 30px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* IEEE Section Responsive */
+@media (max-width: 768px) {
+    .ieee-logos-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .ieee-card {
+        padding: 35px 25px;
+    }
+
+    .ieee-logo-wrapper {
+        width: 240px;
+        height: 90px;
+        padding: 0;
+    }
+
+    .ieee-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .ieee-tagline {
+        font-size: 0.82rem;
+    }
+
+    .footer-ieee-logos {
+        gap: 15px;
+    }
+
+    .footer-ieee-logo {
+        height: 38px;
+        padding: 6px 12px;
+    }
+
+    .footer-ieee-logo img {
+        height: 24px;
+    }
+
+    .ieee-association {
+        padding: 60px 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .ieee-card {
+        padding: 30px 20px;
+    }
+
+    .ieee-logo-wrapper {
+        width: 220px;
+        height: 80px;
+        padding: 0;
+    }
+
+    .ieee-info h3 {
+        font-size: 1.15rem;
+    }
+
+    .ieee-fullname {
+        font-size: 0.85rem;
+    }
+
+    .footer-ieee-logos {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
