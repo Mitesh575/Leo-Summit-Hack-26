@@ -8683,34 +8683,63 @@ h4,
     }
 
     .header-inner {
-        gap: 4px;
-        padding: 0 2px;
+        display: grid;
+        grid-template-areas:
+            "left right"
+            "center center";
+        grid-template-columns: 1fr 1fr;
+        gap: 15px 0;
+        padding: 12px 5px;
     }
 
-    .header-left,
+    .header-left {
+        grid-area: left;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
     .header-right {
-        gap: 4px;
+        grid-area: right;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 12px;
+    }
+
+    .header-center {
+        grid-area: center;
+        display: flex !important;
+        justify-content: center;
+        width: 100%;
+        padding-top: 5px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .logo-img.college-logo,
     .logo-img.leo-logo {
-        width: 26px;
-        /* Slightly smaller for absolute zero overlap */
-        height: 26px;
+        width: 36px;
+        height: 36px;
     }
 
     .logo-img.ieee-logo {
-        width: 22px;
-        height: 22px;
+        width: 32px;
+        height: 32px;
     }
 
     .header-title {
-        font-size: 0.8rem !important;
-        /* Scaled down further */
-        letter-spacing: 0;
-        /* Remove spacing to save width */
-        white-space: normal;
-        /* Allow wrap if absolutely necessary */
+        font-size: 1.15rem !important;
+        letter-spacing: 1px;
+        text-align: center;
+        background: linear-gradient(135deg, var(--gold-light), var(--gold));
+        -webkit-background-clip: text;
+        background-clip: text;
+        font-weight: 800;
+    }
+
+    .ieee-partners {
+        padding-right: 0;
+        gap: 8px;
     }
 
     /* COLLAPSE EVERYTHING TO 1 COLUMN */
