@@ -8456,8 +8456,8 @@ h4,
             "left right"
             "center center";
         grid-template-columns: 1fr 1fr;
-        gap: 12px 0;
-        padding: 10px 4%;
+        gap: 8px 0;
+        padding: 12px 4%;
     }
 
     .header-left {
@@ -8465,6 +8465,8 @@ h4,
         display: flex;
         align-items: center;
         gap: 12px;
+        height: 44px;
+        /* Fixed height for top row alignment */
     }
 
     .header-right {
@@ -8473,6 +8475,8 @@ h4,
         align-items: center;
         justify-content: flex-end;
         gap: 12px;
+        height: 44px;
+        /* Fixed height for top row alignment */
     }
 
     .header-center {
@@ -8480,33 +8484,55 @@ h4,
         display: flex !important;
         justify-content: center;
         width: 100%;
-        padding-top: 8px;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .logo-img.college-logo,
     .logo-img.leo-logo {
-        width: 38px;
-        height: 38px;
+        width: 36px;
+        height: 36px;
     }
 
     .logo-img.ieee-logo {
-        width: 34px;
-        height: 34px;
+        width: 32px;
+        height: 32px;
     }
 
     .header-title {
-        font-size: 1.15rem !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        line-height: 1.1;
+    }
+
+    .header-title span {
+        display: block;
+        font-size: 1.25rem !important;
         letter-spacing: 1px;
         text-align: center;
         font-weight: 800;
-        max-width: 90vw;
+        background: linear-gradient(135deg, #FFD700 0%, #F59E0B 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-transform: uppercase;
+    }
+
+    .header-title .header-title-hack {
+        font-size: 1.05rem !important;
+        margin-top: -2px;
+    }
+
+    .ieee-partners {
+        gap: 8px !important;
     }
 
     /* HERO */
     .hero {
-        padding: 120px 5% 50px;
-        /* Increased top padding for 2-row header */
+        padding: 135px 5% 50px;
+        /* Increased top padding for 2nd row title */
         min-height: auto;
     }
 
