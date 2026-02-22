@@ -980,14 +980,13 @@ body {
 .hamburger {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 5px;
     background: none;
     border: none;
     cursor: pointer;
     z-index: 2001;
-    /* Ensure above mobile nav */
-    padding: 10px;
-    /* Larger touch target */
+    padding: 8px;
+    /* Slightly tighter touch target */
 }
 
 /* Hide text labels on mobile, show logo */
@@ -1025,8 +1024,10 @@ body {
 /* Restore Hamburger Spans */
 .hamburger span {
     display: block;
-    width: 30px;
-    height: 3px;
+    width: 24px;
+    /* Shrunk from 30px */
+    height: 2px;
+    /* Shrunk from 3px */
     background: var(--text-white);
     border-radius: 2px;
     transition: all 0.3s var(--transition);
@@ -8456,15 +8457,18 @@ h4,
             "left right"
             "center center";
         grid-template-columns: 1fr 1fr;
-        gap: 8px 0;
-        padding: 12px 4%;
+        gap: 14px 0;
+        /* Increased vertical gap for absolute clearance */
+        padding: 12px 2%;
+        /* Pushed to corners */
     }
 
     .header-left {
         grid-area: left;
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 8px;
+        /* Tighter logo gap */
         height: 44px;
         /* Fixed height for top row alignment */
     }
@@ -8474,7 +8478,8 @@ h4,
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        gap: 12px;
+        gap: 8px;
+        /* Tighter logo/menu gap */
         height: 44px;
         /* Fixed height for top row alignment */
     }
