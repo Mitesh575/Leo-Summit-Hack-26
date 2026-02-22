@@ -693,7 +693,7 @@ body {
 .header-title {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 900;
-    font-size: 4.5rem;
+    font-size: 1.8rem;
     background: linear-gradient(135deg, #FFD700 0%, #F59E0B 50%, #B45309 100%);
     -webkit-background-clip: text;
     background-clip: text;
@@ -701,6 +701,7 @@ body {
     letter-spacing: 2px;
     margin: 0;
     white-space: nowrap;
+    flex-shrink: 0;
     text-transform: uppercase;
     animation: titleGlow 2.5s ease-in-out infinite;
 }
@@ -992,22 +993,31 @@ body {
 /* Hide text labels on mobile, show logo */
 @media (max-width: 1024px) {
     .header-right .ieee-partners {
-        display: none;
-        /* Hide technical partners on mobile header to stay neat */
+        display: flex;
+        /* Restore visibility */
+        gap: 8px;
     }
 
     .header-center {
-        display: none;
-        /* Hide big title on mobile to prioritize logos and menu */
+        display: flex;
+        /* Restore visibility */
+        flex: 2;
+        justify-content: center;
     }
 
     .header-inner {
         justify-content: space-between;
+        gap: 10px;
     }
 
     .logo-img {
-        width: 38px !important;
-        height: 38px !important;
+        width: 32px !important;
+        height: 32px !important;
+    }
+
+    .header-title {
+        font-size: 1rem !important;
+        letter-spacing: 1px;
     }
 }
 
@@ -1450,10 +1460,11 @@ body.no-scroll {
 
 .hero-title {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(3rem, 6vw, 5rem);
+    font-size: min(5rem, 6vw);
     font-weight: 700;
     line-height: 1.05;
     margin-bottom: 25px;
+    white-space: nowrap;
 }
 
 .title-word {
@@ -8390,7 +8401,7 @@ h4,
     }
 
     .header-center {
-        display: none !important;
+        display: flex !important;
     }
 
     .logo-img.college-logo,
