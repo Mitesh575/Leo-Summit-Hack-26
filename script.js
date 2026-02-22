@@ -6,40 +6,55 @@ const isTouchDevice = () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Add touch device class for CSS hooks
-    if (isTouchDevice()) {
-        document.body.classList.add('touch-device');
+    console.log("Leo Summit: DOM Content Loaded. Initializing components...");
+
+    const initFunctions = [
+        { name: 'Touch Detection', fn: () => { if (isTouchDevice()) document.body.classList.add('touch-device'); } },
+        { name: 'Custom Cursor', fn: initCustomCursor },
+        { name: 'Particles', fn: initParticles },
+        { name: 'Progress Bar', fn: initProgressBar },
+        { name: 'Header', fn: initHeader },
+        { name: 'Mascot', fn: initMascot },
+        { name: 'Parallax', fn: initParallax },
+        { name: 'Intro Section', fn: initIntroSection },
+        { name: 'Highlights', fn: initHighlights },
+        { name: 'About Section', fn: initAboutSection },
+        { name: 'Domains', fn: initDomains },
+        { name: 'Judges', fn: initJudges },
+        { name: 'Scope Cards', fn: initScopeCards },
+        { name: 'Mobile Carousel', fn: initMobileCarousel },
+        { name: 'Ripple Effects', fn: initRippleEffects },
+        { name: 'Counter Animation', fn: initCounterAnimation },
+        { name: '24h Event Timer', fn: initEventTimer },
+        { name: 'Hero Countdown', fn: initHeroCountdown },
+        { name: 'Mobile Menu', fn: initMobileMenu },
+        { name: 'Smooth Scroll', fn: initSmoothScroll },
+        { name: 'Text Reveals', fn: initTextReveals }
+    ];
+
+    initFunctions.forEach(comp => {
+        try {
+            if (typeof comp.fn === 'function') {
+                comp.fn();
+            }
+        } catch (err) {
+            console.error(`Leo Summit: Failed to initialize ${comp.name}:`, err);
+        }
+    });
+
+    // Handle interactive components that check for touch device
+    if (!isTouchDevice()) {
+        try { initMagneticButtons(); } catch (e) { }
+        try { initSpotlightEffects(); } catch (e) { }
+        try { init3DMascot(); } catch (e) { }
+        try { initHeaderMascot(); } catch (e) { }
     }
-
-    // Initialize all components immediately (removed intro)
-    initCustomCursor();
-    initParticles();
-    initProgressBar();
-    initHeader();
-    initMascot();
-    initParallax();
-    initIntroSection();
-    initHighlights();
-    initAboutSection();
-    initDomains();
-    initJudges();
-    initScopeCards(); // Add Scope Cards initialization
-    initMobileCarousel(); // <-- Mobile Grid Scroll
-    // React Gallery Slider is mounted via widget.js bridges
-    initRippleEffects();
-    initCounterAnimation();
-
-
-    initMobileMenu(); // Initialize immediately, not dependent on intro
-
-
 
     // Auto remove background from mascot
     const mascotImg = document.querySelector('.lion-mascot-img');
     if (mascotImg) {
-        mascotImg.crossOrigin = "Anonymous"; // Enable CORS if needed
+        mascotImg.crossOrigin = "Anonymous";
         mascotImg.onload = () => removeBackground(mascotImg);
-        // If already cached/loaded
         if (mascotImg.complete) removeBackground(mascotImg);
     }
 });
@@ -79,9 +94,12 @@ function initCinematicIntro(onComplete) {
     // Create spans for each character
     const spanningText = targetText.split('').map(char => {
         if (char === ' ') {
-            const br = document.createElement('br');
-            title.appendChild(br);
-            return { span: br, char, done: true };
+            const spaceSpan = document.createElement('span');
+            spaceSpan.className = 'intro-char';
+            spaceSpan.innerHTML = '&nbsp;';
+            spaceSpan.style.display = 'inline';
+            title.appendChild(spaceSpan);
+            return { span: spaceSpan, char, done: true };
         }
         const span = document.createElement('span');
         span.className = 'intro-char';
@@ -425,6 +443,7 @@ function initJudges() {
 function initMobileMenu() {
     const hamburger = document.getElementById('hamburger');
     const mobileNav = document.getElementById('mobileNav');
+    const closeBtn = document.getElementById('mobileNavClose');
     const links = document.querySelectorAll('.mobile-link');
     const body = document.body;
 
@@ -433,42 +452,47 @@ function initMobileMenu() {
         return;
     }
 
-    console.log('Mobile Menu Initialized. Hamburger:', hamburger, 'Nav:', mobileNav);
-    hamburger.style.display = 'flex'; // Force display via JS as backup
+    console.log('Mobile Menu Initialized.');
 
-
-    const toggleMenu = (e) => {
-        e.preventDefault(); // Prevent ghost clicks
-        console.log('Hamburger clicked');
-        hamburger.classList.toggle('active');
-        mobileNav.classList.toggle('active');
-        body.classList.toggle('no-scroll');
+    const openMenu = () => {
+        hamburger.classList.add('active');
+        mobileNav.classList.add('active');
+        body.classList.add('no-scroll');
     };
 
-    // Add both click and touchstart for better responsiveness
-    hamburger.addEventListener('click', toggleMenu);
-    hamburger.addEventListener('touchstart', toggleMenu, { passive: false });
+    const closeMenu = () => {
+        hamburger.classList.remove('active');
+        mobileNav.classList.remove('active');
+        body.classList.remove('no-scroll');
+    };
+
+    // Hamburger Toggles
+    hamburger.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (mobileNav.classList.contains('active')) closeMenu();
+        else openMenu();
+    });
+
+    // Close Button within Sidebar
+    if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeMenu();
+        });
+    }
 
     // Close menu when link is clicked
     links.forEach(link => {
         link.addEventListener('click', () => {
-            console.log('Mobilenav link clicked');
-            hamburger.classList.remove('active');
-            mobileNav.classList.remove('active');
-            body.classList.remove('no-scroll');
+            closeMenu();
         });
     });
 
-    // Close menu on resize if screen becomes large
-    window.addEventListener('resize', () => {
-        // Disabled auto-close for desktop sidebar support
-        /*
-        if (window.innerWidth > 768) {
-            hamburger.classList.remove('active');
-            mobileNav.classList.remove('active');
-            body.classList.remove('no-scroll');
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+            closeMenu();
         }
-        */
     });
 }
 
@@ -838,16 +862,7 @@ function initHeaderMascot() {
     });
 }
 
-// Initialize interactions
-document.addEventListener('DOMContentLoaded', () => {
-    if (!isTouchDevice()) {
-        init3DMascot();
-        initHeaderMascot();
-    }
-    initCountdown();
-
-    // initMobileNav(); // Removed duplicate call
-});
+// Obsolete Listeners Removed (Consolidated at the top)
 
 // Mobile Navigation Logic
 // Mobile Navigation Logic - CONSOLIDATED IN initMobileMenu (Removed duplicate)
@@ -916,20 +931,7 @@ function initMagneticButtons() {
     });
 }
 
-// Initialize Premium Animations
-document.addEventListener('DOMContentLoaded', () => {
-    initSmoothScroll(); // Lenis handles mobile internally (smoothTouch: false)
-    initTextReveals();  // CSS transitions are fine on mobile
-
-    // Disable heavy hover effects on touch devices
-
-    if (!isTouchDevice()) {
-        initMagneticButtons();
-        initSpotlightEffects();
-        // Mascots are initialized in main listener, but we can check there too
-        // or just let them be if they are optimized
-    }
-});
+// Obsolete Premium Animation Listeners Removed (Consolidated at the top)
 
 
 
@@ -941,15 +943,20 @@ function initTextReveals() {
         heading.classList.add('reveal-text');
 
         // Split text into words
-        const text = heading.textContent.trim();
+        // Normalize all whitespace (newlines, tabs, multiple spaces → single space)
+        const text = heading.textContent.replace(/\s+/g, ' ').trim();
         const words = text.split(' ');
         heading.textContent = ''; // Clear content
 
         words.forEach((word, index) => {
             const span = document.createElement('span');
-            span.textContent = word + ' '; // Add space back
+            span.textContent = word;
             span.style.transitionDelay = `${index * 0.05}s`;
             heading.appendChild(span);
+            // Append space as a text node so browsers never collapse it
+            if (index < words.length - 1) {
+                heading.appendChild(document.createTextNode(' '));
+            }
         });
     });
 
@@ -1351,4 +1358,126 @@ function initDomains() {
             closeModal();
         }
     });
+}
+
+// 24-Hour Event Timer Logic - Robust Version
+// 24-Hour Event Timer Logic - Robust Version
+function initEventTimer() {
+    const refs = { h: 'event-h', m: 'event-m', s: 'event-s', start: 'start-timer-btn', reset: 'reset-timer-btn' };
+    const els = Object.fromEntries(Object.entries(refs).map(([k, v]) => [k, document.getElementById(v)]));
+    if (!els.h || !els.m || !els.s) return;
+
+    let interval = null;
+    const TOTAL = 86400000;
+
+    const update = (rem) => {
+        const ms = Math.max(0, rem);
+        const hh = Math.floor(ms / 3600000);
+        const mm = Math.floor((ms % 3600000) / 60000);
+        const ss = Math.floor((ms % 60000) / 1000);
+
+        [els.h, els.m, els.s].forEach((el, i) => {
+            const val = [hh, mm, ss][i];
+            const str = String(val).padStart(2, '0');
+            el.style.setProperty('--value', val);
+            el.textContent = str;
+        });
+
+        if (ms <= 0 && interval) {
+            clearInterval(interval);
+            interval = null;
+            localStorage.removeItem('_timer_target');
+            if (els.start) { els.start.disabled = false; els.start.style.opacity = '1'; }
+        }
+    };
+
+    const start = (resuming) => {
+        let t = localStorage.getItem('_timer_target');
+        if (!resuming || !t) {
+            t = Date.now() + TOTAL;
+            localStorage.setItem('_timer_target', t);
+        }
+        if (interval) clearInterval(interval);
+        interval = setInterval(() => update(t - Date.now()), 1000);
+        update(t - Date.now());
+        if (els.start) {
+            els.start.disabled = true;
+            els.start.style.opacity = '0.5';
+            els.start.innerHTML = '<span class="btn-icon">⏱</span> Counting Down...';
+        }
+    };
+
+    const reset = () => {
+        clearInterval(interval);
+        interval = null;
+        localStorage.removeItem('_timer_target');
+        update(TOTAL);
+        if (els.start) {
+            els.start.disabled = false;
+            els.start.style.opacity = '1';
+            els.start.innerHTML = '<span class="btn-icon">▶</span> Start Timer';
+        }
+    };
+
+    if (els.start) els.start.onclick = () => start(false);
+    if (els.reset) els.reset.onclick = reset;
+
+    const saved = localStorage.getItem('_timer_target');
+    if (saved && parseInt(saved) > Date.now()) start(true);
+    else update(TOTAL);
+}
+
+// Hero Launch Timer - Robust handling for Hero Section
+function initHeroCountdown() {
+    const targetDate = new Date('February 23, 2026 09:00:00').getTime();
+
+    // Select Hero Section IDs
+    const hDays = document.getElementById('days');
+    const hHours = document.getElementById('hours');
+    const hMinutes = document.getElementById('minutes');
+    const hSeconds = document.getElementById('seconds');
+
+    // Select Sidebar (Nav) IDs
+    const nDays = document.getElementById('nav-days');
+    const nHours = document.getElementById('nav-hours');
+    const nMinutes = document.getElementById('nav-minutes');
+    const nSeconds = document.getElementById('nav-seconds');
+
+    const updateHero = () => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance < 0) {
+            const containers = document.querySelectorAll('.countdown-container, .mobile-nav-timer');
+            containers.forEach(container => {
+                container.innerHTML = '<div class="live-badge" style="color:#ffd700; font-weight:bold; font-size:1.2rem; text-align:center;">EVENT LIVE 🚀</div>';
+            });
+            return;
+        }
+
+        const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+        const dStr = String(d).padStart(2, '0');
+        const hStr = String(h).padStart(2, '0');
+        const mStr = String(m).padStart(2, '0');
+        const sStr = String(s).padStart(2, '0');
+
+        // Update Hero timer
+        if (hDays) hDays.textContent = dStr;
+        if (hHours) hHours.textContent = hStr;
+        if (hMinutes) hMinutes.textContent = mStr;
+        if (hSeconds) hSeconds.textContent = sStr;
+
+        // Update Sidebar timer
+        if (nDays) nDays.textContent = dStr;
+        if (nHours) nHours.textContent = hStr;
+        if (nMinutes) nMinutes.textContent = mStr;
+        if (nSeconds) nSeconds.textContent = sStr;
+    };
+
+    updateHero();
+    setInterval(updateHero, 1000);
 }

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- IEEE CS Iconic Mark (Phi Circular Mark) -->
+  <circle cx="50" cy="50" r="48" fill="#F59E0B" />
+  <!-- Internal 'Phi' symbol -->
+  <!-- Outer Ring of Symbol -->
+  <path d="M25 50 A25 25 0 1 1 75 50 A25 25 0 1 1 25 50" stroke="white" stroke-width="7" fill="none"/>
+  <!-- Middle Vertical Bar -->
+  <rect x="46" y="15" width="8" height="70" fill="white"/>
+  <!-- Bottom Foundation Bar -->
+  <rect x="35" y="78" width="30" height="7" fill="white"/>
+</svg>

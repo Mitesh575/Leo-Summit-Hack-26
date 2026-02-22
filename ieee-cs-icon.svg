@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- IEEE CS icon: Orange/amber circle with white Phi symbol -->
+
+  <!-- Orange background circle -->
+  <circle cx="50" cy="50" r="48" fill="#F5A623" />
+
+  <!-- White Phi symbol composed of: top bar + oval ring + vertical bar + base stand -->
+  <!-- Outer oval ring of Phi -->
+  <ellipse cx="50" cy="48" rx="20" ry="24" fill="none" stroke="white" stroke-width="8" />
+
+  <!-- Vertical bar through center (top portion above ring) -->
+  <rect x="46" y="16" width="8" height="14" fill="white" rx="2" />
+
+  <!-- Vertical bar through center (middle, inside ring) -->
+  <rect x="46" y="30" width="8" height="36" fill="white" />
+
+  <!-- Vertical bar through center (bottom portion below ring) -->
+  <rect x="46" y="66" width="8" height="10" fill="white" rx="2" />
+
+  <!-- Base stand / horizontal foot -->
+  <rect x="36" y="76" width="28" height="7" fill="white" rx="3" />
+</svg>

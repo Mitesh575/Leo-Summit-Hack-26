@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- IEEE SMC Iconic Mark (Arrow + Person) -->
+  <g transform="translate(5, 5) scale(0.9)">
+    <!-- The Blue Arrow Shape -->
+    <path d="M0 55 L80 15 L100 85 L85 80 L80 75 C70 50 25 50 20 75 L15 80 Z" fill="#006699" />
+    <!-- White Person Head -->
+    <circle cx="58" cy="48" r="14" fill="white" />
+    <!-- White Person Shoulders/Body -->
+    <path d="M25 80 C25 60 75 60 75 80 L80 90 L20 90 Z" fill="#white" />
+  </g>
+</svg>

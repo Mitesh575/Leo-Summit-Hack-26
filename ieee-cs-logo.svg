@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="csBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0066CC;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#003D7A;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- IEEE CS Circuit/Computer Mark Only -->
+  <g transform="translate(0, 0)">
+    <circle cx="50" cy="50" r="45" fill="url(#csBlue)" stroke="#003D7A" stroke-width="2"/>
+    <circle cx="50" cy="50" r="35" fill="none" stroke="white" stroke-width="1.2"/>
+    <rect x="35" y="35" width="30" height="30" rx="3" fill="none" stroke="white" stroke-width="1.5"/>
+    <line x1="50" y1="20" x2="50" y2="35" stroke="white" stroke-width="1.2"/>
+    <line x1="50" y1="65" x2="50" y2="80" stroke="white" stroke-width="1.2"/>
+    <line x1="20" y1="50" x2="35" y2="50" stroke="white" stroke-width="1.2"/>
+    <line x1="65" y1="50" x2="80" y2="50" stroke="white" stroke-width="1.2"/>
+    <line x1="27" y1="27" x2="38" y2="38" stroke="white" stroke-width="1"/>
+    <line x1="73" y1="27" x2="62" y2="38" stroke="white" stroke-width="1"/>
+    <line x1="27" y1="73" x2="38" y2="62" stroke="white" stroke-width="1"/>
+    <line x1="73" y1="73" x2="62" y2="62" stroke="white" stroke-width="1"/>
+    <text x="50" y="55" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">CS</text>
+  </g>
+</svg>
