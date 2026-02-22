@@ -8520,9 +8520,9 @@ h4,
 
     .header-title span {
         display: block;
-        font-size: 0.95rem !important;
-        /* Scaled down significantly to fit center */
-        letter-spacing: 0.5px;
+        font-size: 1.1rem !important;
+        /* Increased for better visibility */
+        letter-spacing: 0.2px;
         text-align: center;
         font-weight: 800;
         background: linear-gradient(135deg, #FFD700 0%, #F59E0B 50%, #B45309 100%);
@@ -8538,8 +8538,9 @@ h4,
     }
 
     .header-title .header-title-hack {
-        font-size: 0.8rem !important;
-        margin-top: 0;
+        font-size: 0.9rem !important;
+        /* Increased slightly */
+        margin-top: -1px;
     }
 
     /* HERO */
