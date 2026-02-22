@@ -1361,11 +1361,18 @@ function initDomains() {
 }
 
 // 24-Hour Event Timer Logic - Robust Version
-// 24-Hour Event Timer Logic - Robust Version
 function initEventTimer() {
     const refs = { h: 'event-h', m: 'event-m', s: 'event-s', start: 'start-timer-btn', reset: 'reset-timer-btn' };
     const els = Object.fromEntries(Object.entries(refs).map(([k, v]) => [k, document.getElementById(v)]));
     if (!els.h || !els.m || !els.s) return;
+
+    // Password UI References
+    const lockContainer = document.getElementById('timer-lock-container');
+    const controlsContainer = document.getElementById('timer-controls');
+    const passInput = document.getElementById('timer-password');
+    const unlockBtn = document.getElementById('unlock-timer-btn');
+    const errorMsg = document.getElementById('timer-lock-error');
+    const PASS = "LEO@2026";
 
     let interval = null;
     const TOTAL = 86400000;
@@ -1417,10 +1424,35 @@ function initEventTimer() {
             els.start.style.opacity = '1';
             els.start.innerHTML = '<span class="btn-icon">▶</span> Start Timer';
         }
+
+        // Relock Logic
+        localStorage.removeItem('_timer_unlocked');
+        if (lockContainer) lockContainer.classList.remove('hidden');
+        if (controlsContainer) controlsContainer.classList.add('hidden');
+        if (passInput) passInput.value = '';
+        if (errorMsg) errorMsg.classList.add('hidden');
     };
 
     if (els.start) els.start.onclick = () => start(false);
     if (els.reset) els.reset.onclick = reset;
+
+    const unlock = () => {
+        if (passInput.value === PASS) {
+            lockContainer.classList.add('hidden');
+            controlsContainer.classList.remove('hidden');
+        } else {
+            errorMsg.classList.remove('hidden');
+            passInput.classList.add('shake');
+            setTimeout(() => passInput.classList.remove('shake'), 500);
+        }
+    };
+
+    if (unlockBtn) unlockBtn.onclick = unlock;
+    if (passInput) {
+        passInput.onkeypress = (e) => {
+            if (e.key === 'Enter') unlock();
+        };
+    }
 
     const saved = localStorage.getItem('_timer_target');
     if (saved && parseInt(saved) > Date.now()) start(true);

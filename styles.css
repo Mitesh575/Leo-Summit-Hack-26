@@ -8182,13 +8182,10 @@ h4,
     grid-auto-flow: column;
 }
 
-.gap-5 {
-    gap: 3rem;
-}
-
-/* Increased gap */
-.text-center {
-    text-align: center;
+.timer-grid {
+    display: grid;
+    gap: 2rem;
+    margin: 0 auto;
 }
 
 .justify-center {
@@ -8210,17 +8207,16 @@ h4,
 /* Increased padding */
 
 .timer-gold-card {
-    background: linear-gradient(135deg, #FFD700 0%, #B8860B 100%);
+    background: rgba(255, 215, 0, 0.08);
+    /* Softened glass-gold */
+    backdrop-filter: blur(10px);
     border-radius: 20px;
-    /* More rounded */
-    color: #1a1a1a;
-    min-width: 250px;
-    /* Much larger width */
-    padding: 2.5rem 1.5rem;
-    /* Significant padding */
-    box-shadow: 0 20px 40px rgba(184, 134, 11, 0.4), inset 0 0 30px rgba(255, 255, 255, 0.6);
-    border: 2px solid rgba(255, 215, 0, 0.7);
-    transition: transform 0.4s var(--transition);
+    color: var(--gold);
+    min-width: 200px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), inset 0 0 20px rgba(255, 215, 0, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    transition: all 0.4s var(--transition);
 }
 
 .timer-gold-card:hover {
@@ -8238,9 +8234,8 @@ h4,
 }
 
 .text-5xl {
-    font-size: 8rem;
-    /* Dramatically increased from 3rem */
-    font-weight: 900;
+    font-size: 5rem;
+    font-weight: 800;
 }
 
 .timer-label-sm {
@@ -8272,13 +8267,9 @@ h4,
 }
 
 .timer-title {
-    font-size: 4.5rem;
-    /* Larger title */
-    font-weight: 900;
-    background: linear-gradient(135deg, #fff 0%, #aaa 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #fff;
 }
 
 .timer-footer {
@@ -8309,6 +8300,68 @@ h4,
     text-transform: uppercase;
     letter-spacing: 1px;
     border: none;
+}
+
+.timer-controls.hidden {
+    display: none;
+}
+
+.timer-lock {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    backdrop-filter: blur(10px);
+    margin-bottom: 2rem;
+}
+
+.lock-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+}
+
+.lock-input {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 20px;
+    border-radius: 50px;
+    color: white;
+    width: 250px;
+    transition: all 0.3s ease;
+}
+
+.lock-input:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.unlock-btn {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #FFD700 0%, #B8860B 100%);
+    color: #1a1a1a;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.unlock-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(184, 134, 11, 0.4);
+}
+
+.lock-error {
+    color: #ff4d4d;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.hidden {
+    display: none !important;
 }
 
 .btn-icon {

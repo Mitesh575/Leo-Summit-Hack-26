@@ -393,7 +393,7 @@
                     <h2 class="timer-title">24 Hours Hackathon</h2>
                 </div>
 
-                <div class="grid auto-cols-max grid-flow-col gap-5 text-center justify-center">
+                <div class="timer-grid flex auto-cols-max grid-flow-col justify-center">
                     <!-- Hours -->
                     <div class="timer-gold-card flex flex-col p-2">
                         <span class="countdown font-mono text-5xl">
@@ -419,7 +419,16 @@
                     </div>
                 </div>
 
-                <div class="timer-controls flex justify-center gap-5 mt-10">
+                <div id="timer-lock-container" class="timer-lock flex flex-col items-center gap-4 mt-12">
+                    <p class="lock-label">🔐 Security Lock</p>
+                    <div class="lock-input-group flex gap-2">
+                        <input type="password" id="timer-password" placeholder="Enter Password" class="lock-input">
+                        <button id="unlock-timer-btn" class="unlock-btn">Unlock</button>
+                    </div>
+                    <p id="timer-lock-error" class="lock-error hidden">Incorrect password. Please try again.</p>
+                </div>
+
+                <div class="timer-controls hidden flex justify-center gap-5 mt-10" id="timer-controls">
                     <button id="start-timer-btn" class="timer-btn btn-gold">
                         <span class="btn-icon">▶</span> Start Timer
                     </button>
