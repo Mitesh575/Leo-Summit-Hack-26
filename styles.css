@@ -8450,17 +8450,15 @@ h4,
         max-width: 100vw;
     }
 
-    /* HEADER - 3 Row Grid for maximum clarity */
+    /* HEADER - Compact Single Row for mobile */
     .header-inner {
         display: grid;
-        grid-template-areas:
-            "left right"
-            "center center"
-            "nav nav";
-        grid-template-columns: 1fr 1fr;
-        gap: 12px 0;
-        padding: 15px 3%;
+        grid-template-areas: "left center right";
+        grid-template-columns: auto 1fr auto;
+        gap: 8px;
+        padding: 10px 2%;
         align-items: center;
+        width: 100%;
     }
 
     .header-left {
@@ -8468,7 +8466,7 @@ h4,
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
     }
 
     .header-right {
@@ -8476,7 +8474,7 @@ h4,
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
     }
 
     .header-center {
@@ -8484,35 +8482,32 @@ h4,
         display: flex !important;
         justify-content: center;
         width: 100%;
-        padding: 10px 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 0;
+        border: none;
     }
 
     .hamburger {
-        grid-area: nav;
-        justify-self: center;
+        grid-area: unset;
         margin: 0 !important;
-        padding: 6px !important;
-        transform: scale(0.9);
+        padding: 4px !important;
+        transform: scale(0.85);
     }
 
     .logo-img.college-logo,
     .logo-img.leo-logo {
-        width: 40px !important;
-        height: 40px !important;
+        width: 32px !important;
+        height: 32px !important;
     }
 
     .logo-img.ieee-logo {
-        width: 36px !important;
-        height: 36px !important;
+        width: 28px !important;
+        height: 28px !important;
     }
 
     .hamburger span {
-        width: 18px !important;
-        /* Extremely small for corner clearance */
+        width: 22px !important;
         height: 2px !important;
-        gap: 3px !important;
+        gap: 4px !important;
     }
 
     .header-title {
@@ -8525,16 +8520,17 @@ h4,
 
     .header-title span {
         display: block;
-        font-size: 1.3rem !important;
-        letter-spacing: 1.8px;
+        font-size: 0.95rem !important;
+        /* Scaled down significantly to fit center */
+        letter-spacing: 0.5px;
         text-align: center;
-        font-weight: 950;
+        font-weight: 800;
         background: linear-gradient(135deg, #FFD700 0%, #F59E0B 50%, #B45309 100%);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
         text-transform: uppercase;
-        filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.4));
+        filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.3));
     }
 
     .ieee-partners {
@@ -8542,14 +8538,14 @@ h4,
     }
 
     .header-title .header-title-hack {
-        font-size: 1.1rem !important;
-        margin-top: 2px;
+        font-size: 0.8rem !important;
+        margin-top: 0;
     }
 
     /* HERO */
     .hero {
-        padding: 180px 4% 50px;
-        /* Adjusted for 3-row header */
+        padding: 100px 4% 50px;
+        /* Reduced for single row header */
         min-height: auto;
     }
 
