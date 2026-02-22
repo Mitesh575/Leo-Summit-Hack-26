@@ -7675,43 +7675,58 @@ body {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 60px 40px 40px;
+        padding: 50px 20px 30px;
+        gap: 45px;
     }
 
     .footer-column {
         align-items: center;
         width: 100%;
+        text-align: center;
     }
 
     .brand-logos {
         justify-content: center;
+        gap: 15px;
     }
 
     .footer-social-pill {
         justify-content: center;
+        margin-top: 10px;
     }
 
     .footer-contact-section {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 35px;
+        width: 100%;
+    }
+
+    .contact-group {
+        align-items: center;
     }
 
     .contact-item a {
         justify-content: center;
+        font-size: 0.95rem;
     }
 
-    .contact-item a:hover {
-        transform: translateY(-2px);
+    .footer-ieee-logos {
+        justify-content: center;
     }
 
     .map-link {
         align-self: center;
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
     }
 
     .footer-bottom {
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
         text-align: center;
+        margin-top: 40px;
+        padding-top: 30px;
     }
 }
 
@@ -8434,59 +8449,64 @@ h4,
         max-width: 100vw;
     }
 
-    /* HEADER */
-    .header {
-        padding: 8px 3%;
-        /* More compact */
-    }
-
+    /* HEADER - 2 Row Grid for phones */
     .header-inner {
-        justify-content: space-between;
-        gap: 8px;
+        display: grid;
+        grid-template-areas:
+            "left right"
+            "center center";
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 0;
+        padding: 10px 4%;
     }
 
-    .header-left,
+    .header-left {
+        grid-area: left;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
     .header-right {
-        flex: 1;
-        /* Give equal space to sides */
-        min-width: 0;
+        grid-area: right;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 12px;
     }
 
     .header-center {
+        grid-area: center;
         display: flex !important;
-        flex: 2;
-        /* Center grows more to accommodate title */
-        min-width: 0;
         justify-content: center;
+        width: 100%;
+        padding-top: 8px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .logo-img.college-logo,
     .logo-img.leo-logo {
-        width: 32px;
-        height: 32px;
+        width: 38px;
+        height: 38px;
     }
 
     .logo-img.ieee-logo {
-        width: 28px;
-        height: 28px;
-    }
-
-    .ieee-partners {
-        gap: 4px;
-        padding-right: 4px;
-    }
-
-    .partner-group {
-        gap: 5px;
+        width: 34px;
+        height: 34px;
     }
 
     .header-title {
-        font-size: 0.95rem !important;
+        font-size: 1.15rem !important;
+        letter-spacing: 1px;
+        text-align: center;
+        font-weight: 800;
+        max-width: 90vw;
     }
 
     /* HERO */
     .hero {
-        padding: 100px 5% 50px;
+        padding: 120px 5% 50px;
+        /* Increased top padding for 2-row header */
         min-height: auto;
     }
 
@@ -8680,66 +8700,6 @@ h4,
     .logo-img.leo-logo {
         width: 36px;
         height: 36px;
-    }
-
-    .header-inner {
-        display: grid;
-        grid-template-areas:
-            "left right"
-            "center center";
-        grid-template-columns: 1fr 1fr;
-        gap: 15px 0;
-        padding: 12px 5px;
-    }
-
-    .header-left {
-        grid-area: left;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .header-right {
-        grid-area: right;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 12px;
-    }
-
-    .header-center {
-        grid-area: center;
-        display: flex !important;
-        justify-content: center;
-        width: 100%;
-        padding-top: 5px;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .logo-img.college-logo,
-    .logo-img.leo-logo {
-        width: 36px;
-        height: 36px;
-    }
-
-    .logo-img.ieee-logo {
-        width: 32px;
-        height: 32px;
-    }
-
-    .header-title {
-        font-size: 1.15rem !important;
-        letter-spacing: 1px;
-        text-align: center;
-        background: linear-gradient(135deg, var(--gold-light), var(--gold));
-        -webkit-background-clip: text;
-        background-clip: text;
-        font-weight: 800;
-    }
-
-    .ieee-partners {
-        padding-right: 0;
-        gap: 8px;
     }
 
     /* COLLAPSE EVERYTHING TO 1 COLUMN */
